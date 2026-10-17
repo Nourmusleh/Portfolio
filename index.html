@@ -1,153 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nour Musleh — Project Management, Digital Transformation, Product Ownership and Business Analysis portfolio.">
-  <meta name="theme-color" content="#101c32" id="theme-color-meta">
-  <meta name="color-scheme" content="dark light">
-  <title>Nour Musleh | Project Management Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home" aria-label="Nour Musleh home"><span class="brand-mark">NM</span><span>NOUR MUSLEH<span class="brand-sub">PROJECT DELIVERY & DIGITAL TRANSFORMATION</span></span></a>
-      <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-      <div class="nav-links">
-        <a href="#about">About</a><a href="#experience">Experience</a><a href="#projects">Case Studies</a><a href="#skills">Capabilities</a><a href="#education">Education</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light mode" title="Switch theme"><span class="theme-icon" aria-hidden="true">☼</span><span class="theme-label">Light mode</span></button><a class="nav-cta" href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
+const toggle = document.querySelector('.menu-toggle');
+const links = document.querySelector('.nav-links');
+if (toggle && links) {
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Toggle navigation');
+    toggle.textContent = isOpen ? '×' : '☰';
+  });
+  links.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Toggle navigation');
+    toggle.textContent = '☰';
+  }));
+}
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  <main>
-    <section class="hero section" id="home">
-      <div class="hero-glow"></div>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="status-dot"></span> PROJECT MANAGEMENT · DIGITAL TRANSFORMATION</p>
-          <h1>Turning business needs into <span>digital solutions.</span></h1>
-          <p class="hero-lead">I coordinate stakeholders, business requirements, and technical teams to support structured delivery across digital transformation initiatives.</p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">Explore case studies <span aria-hidden="true">↗</span></a>
-            <a class="button button-secondary" href="#contact">Let’s connect</a>
-          </div>
-          <div class="hero-meta"><span>United Arab Emirates</span><span class="meta-separator"></span><span>Project coordination · Agile/Scrum · Product ownership</span></div>
-        </div>
-        <aside class="hero-card">
-          <div class="card-topline"><span>PROFESSIONAL SNAPSHOT</span><span class="card-icon">↗</span></div>
-          <div class="snapshot-item"><span class="snapshot-number">01</span><div><strong>Project Delivery</strong><p>Project trackers, action items, dependencies and follow-up</p></div></div>
-          <div class="snapshot-item"><span class="snapshot-number">02</span><div><strong>Stakeholder Alignment</strong><p>Communication across clients, business and development teams</p></div></div>
-          <div class="snapshot-item"><span class="snapshot-number">03</span><div><strong>Business Analysis</strong><p>Requirements, process analysis, BRDs and UAT coordination</p></div></div>
-          <div class="card-foot"><span class="mini-line"></span> Structured collaboration. Clear communication.</div>
-        </aside>
-      </div>
-      <div class="container hero-bottom"><span>SELECTED EXPERIENCE</span><div class="client-strip"><span>NETWAYS</span><span>7AWI MEDIA GROUP</span><span>iALMAS TECHNOLOGIES</span><span>MOZAIC INNOVATIVE SOLUTIONS</span></div></div>
-    </section>
 
-    <section class="section section-light" id="about">
-      <div class="container two-col">
-        <div><p class="eyebrow eyebrow-dark">01 / ABOUT</p><h2>Connecting people, process, and technology.</h2></div>
-        <div class="about-copy"><p>I am a Project Management and Digital Transformation professional with experience coordinating digital initiatives for government and enterprise clients. My work brings together stakeholder management, requirements gathering, Agile/Scrum delivery, project tracking, risk and issue follow-up, UAT, and cross-functional coordination.</p><p>With a Computer Science background and experience in product ownership, business analysis, and software development, I help translate business needs into clear requirements and support communication between clients and technical teams.</p><div class="about-tags"><span>Project Coordination</span><span>Agile / Scrum</span><span>Stakeholder Management</span><span>Business Analysis</span><span>Digital Transformation</span></div></div>
-      </div>
-    </section>
-
-    <section class="section" id="experience">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">02 / EXPERIENCE</p><h2>Experience across delivery and technology.</h2></div><p class="section-intro">A blend of project coordination, product ownership, business analysis, and technical delivery.</p></div>
-        <div class="timeline">
-          <article class="timeline-item"><div class="timeline-date">11/2025 — PRESENT <span>UAE</span></div><div class="timeline-content"><h3>Product Owner | Business Analyst</h3><p class="company">Netways</p><ul><li>Coordinate with clients, business stakeholders, and development teams across digital transformation projects.</li><li>Maintain client project trackers covering requirements, deliverables, action items, dependencies, and progress.</li><li>Facilitate Scrum meetings and follow up on tasks, blockers, progress, and upcoming deliverables.</li><li>Conduct requirements gathering, process analysis, BRD documentation, workshops, and UAT-related coordination.</li></ul><div class="tag-row"><span>Project Tracking</span><span>Jira / Agile</span><span>Figma</span><span>BRD</span></div></div></article>
-          <article class="timeline-item"><div class="timeline-date">02/2024 — 10/2025 <span>UAE</span></div><div class="timeline-content"><h3>Business Development & Product Specialist</h3><p class="company">iAlmas Technologies</p><ul><li>Managed partnerships and resellers to market cybersecurity solutions.</li><li>Delivered product presentations, prepared commercial proposals, and coordinated sales activities from lead to payment.</li><li>Worked with product vendors to understand features and support product marketing efforts.</li></ul></div></article>
-          <article class="timeline-item"><div class="timeline-date">01/2023 — 01/2024 <span>UAE</span></div><div class="timeline-content"><h3>Software Engineer</h3><p class="company">7awi Media Group</p><ul><li>Developed and optimized digital content platforms for Layalina.</li><li>Built responsive interfaces using HTML, CSS, JavaScript, and Figma.</li><li>Supported database tasks and data analysis for ERP and supply chain modules; performed quality assurance testing.</li></ul></div></article>
-          <article class="timeline-item"><div class="timeline-date">02/2022 — 12/2022 <span>JORDAN</span></div><div class="timeline-content"><h3>Product Management</h3><p class="company">Mozaic Innovative Solutions</p><ul><li>Maintained BRDs, user stories, and use cases using project planning tools.</li><li>Assisted with weekly status reports and risk assessments.</li><li>Collaborated with UI/UX and CX teams on prototypes, test cases, and UAT sessions.</li></ul></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="projects">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow eyebrow-dark">03 / SELECTED CASE STUDIES</p><h2>Project work, clearly framed.</h2></div><p class="section-intro">Selected engagements based on my CV. Details are intentionally high-level and do not disclose confidential client information.</p></div>
-        <div class="project-grid">
-          <article class="project-card project-featured"><div class="project-top"><span class="project-type">PRODUCT OWNERSHIP</span><span class="project-index">CASE 01</span></div><div class="project-art art-d365"><span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span><span class="art-core">D365</span><span class="art-caption">CUSTOMER CONTACT</span></div><div class="project-body"><h3>Dubai Municipality — Call Center</h3><p class="project-subtitle">Microsoft Dynamics 365 Contact Center (CCaaS)</p><p>Acted as Product Owner, coordinating with stakeholders and technical teams to support requirements, delivery, and implementation.</p><div class="case-details"><div><b>Role</b><span>Product Owner</span></div><div><b>Focus</b><span>Stakeholder coordination · Requirements · Delivery</span></div></div><div class="tag-row"><span>Dynamics 365</span><span>Stakeholders</span><span>Delivery</span></div></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-type">PRODUCT OWNERSHIP</span><span class="project-index">CASE 02</span></div><div class="project-art art-rvs"><div class="rvs-window"><div class="rvs-bar"></div><div class="rvs-line line-long"></div><div class="rvs-line"></div><div class="rvs-line line-short"></div><div class="rvs-pill">CASE TRACKING</div></div></div><div class="project-body"><h3>Dubai Land Department — RVS</h3><p class="project-subtitle">Real Estate Violation System</p><p>Managed business requirements, coordinated with stakeholders and development teams, and supported solution delivery and continuous improvement.</p><div class="case-details"><div><b>Role</b><span>Product Owner</span></div><div><b>Focus</b><span>Business requirements · Coordination</span></div></div><div class="tag-row"><span>Requirements</span><span>Product Ownership</span><span>Delivery</span></div></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-type">BUSINESS ANALYSIS</span><span class="project-index">CASE 03</span></div><div class="project-art art-eca"><div class="eca-symbol">ECA</div><div class="eca-rings"></div><span class="art-caption">EARLY CHILDHOOD AUTHORITY</span></div><div class="project-body"><h3>ECA — Safety Concern Portal</h3><p class="project-subtitle">Requirements and process analysis</p><p>Conducted end-to-end business analysis, including stakeholder management, requirements gathering, process analysis, and comprehensive BRD documentation.</p><div class="case-details"><div><b>Role</b><span>Business Analyst</span></div><div><b>Focus</b><span>Requirements · Process analysis · BRD</span></div></div><div class="tag-row"><span>BRD</span><span>Stakeholders</span><span>Process Analysis</span></div></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-type">DIGITAL PLATFORM</span><span class="project-index">CASE 04</span></div><div class="project-art art-special"><div class="special-symbol">S<span>O</span></div><div class="special-rings"></div><span class="art-caption">ADOPTION & ENABLEMENT</span></div><div class="project-body"><h3>Special Olympics Platform</h3><p class="project-subtitle">Product ownership and user enablement</p><p>Acted as Product Owner, conducted client workshops, and delivered end-user training to support platform adoption.</p><div class="case-details"><div><b>Role</b><span>Product Owner</span></div><div><b>Focus</b><span>Client workshops · End-user training</span></div></div><div class="tag-row"><span>Workshops</span><span>Training</span><span>Adoption</span></div></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-type">DIGITAL TRANSFORMATION</span><span class="project-index">CASE 05</span></div><div class="project-art art-dge"><div class="flow-node">SMART<br>HIRING</div><span class="flow-connector"></span><div class="flow-node">SRM</div><span class="art-caption">CONNECTED WORKFLOWS</span></div><div class="project-body"><h3>DGE — Smart Hiring & SRM</h3><p class="project-subtitle">Hiring and stakeholder relationship workflows</p><p>Contributed to Smart Hiring and Stakeholder Relationship Management initiatives, supporting stakeholder engagement and communication workflows.</p><div class="case-details"><div><b>Contribution</b><span>Project support</span></div><div><b>Focus</b><span>Stakeholder engagement · Communication workflows</span></div></div><div class="tag-row"><span>Digital Transformation</span><span>Workflow Support</span></div></div></article>
-        </div>
-        <p class="confidentiality-note"><span>ⓘ</span> These case studies summarize responsibilities documented in my CV. Detailed deliverables, client data, project outcomes, and metrics are not published where they have not been verified or approved for public disclosure.</p>
-      </div>
-    </section>
-
-    <section class="section" id="skills">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">04 / CAPABILITIES</p><h2>Tools and working methods.</h2></div><p class="section-intro">A practical mix of project delivery, business analysis, collaboration, and technical understanding.</p></div>
-        <div class="skills-grid">
-          <div class="skill-panel"><div class="skill-icon">↗</div><h3>Project Management & Delivery</h3><p>Project coordination, planning and tracking, Agile/Scrum, stakeholder management, cross-functional coordination, risk and issue management, project reporting, UAT coordination, workshops and presentations.</p></div>
-          <div class="skill-panel"><div class="skill-icon">⌘</div><h3>Business Analysis & Collaboration</h3><p>Requirements gathering and analysis, BRDs, user stories, use cases, process analysis and improvement, client communication, Figma wireframes and UI/UX collaboration.</p></div>
-          <div class="skill-panel"><div class="skill-icon">▤</div><h3>Tools & Technical Foundation</h3><p>Jira, advanced Microsoft Excel, Figma, Power BI, SQL/PLSQL, Python data analysis, MySQL, Firebase, Oracle Forms and Reports, HTML, CSS and JavaScript.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="education">
-      <div class="container two-col">
-        <div><p class="eyebrow eyebrow-dark">05 / EDUCATION</p><h2>Education and professional development.</h2></div>
-        <div class="education-list">
-          <article><span class="education-year">10/2018 — 02/2022</span><div><h3>Bachelor of Computer Science</h3><p>AL-Isra University · Jordan · Grade: Very Good (Top of the class)</p></div></article>
-          <article><span class="education-year">01/2020 — 08/2020</span><div><h3>Mini MBA in Business Administration</h3><p>Cambridge Training College · England · Online study · Grade: Excellent</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="leadership">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">06 / LEADERSHIP & COMMUNITY</p><h2>Leadership and community engagement.</h2></div><p class="section-intro">Leadership development and community initiatives included in my CV.</p></div>
-        <div class="timeline">
-          <article class="timeline-item"><div class="timeline-date">01/2021 — 12/2021 <span>JORDAN</span></div><div class="timeline-content"><h3>Leadership Development Fellow — Leaders Program</h3><p class="company">Greater Amman Municipality</p><ul><li>Developed leadership, communication, public speaking, and problem-solving skills through intensive workshops.</li><li>Led civic and community projects, applying strategic leadership to achieve practical outcomes.</li><li>Collaborated with peers from diverse backgrounds to drive initiatives and strengthen leadership experience.</li></ul></div></article>
-          <article class="timeline-item"><div class="timeline-date">10/2018 — 12/2020 <span>JORDAN</span></div><div class="timeline-content"><h3>Co-founder — Good Students Initiative</h3><p class="company">Zarqa University</p><ul><li>Founded and organized community campaigns supporting low-income families.</li><li>Directed Back-to-School drives, Ramadan iftars, and Eid gift events.</li><li>Supported youth through workshops on soft skills and personal development.</li></ul></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-light" id="graduation-projects">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow eyebrow-dark">07 / ADDITIONAL PROJECTS</p><h2>Academic projects.</h2></div><p class="section-intro">Projects and achievements as stated in my CV.</p></div>
-        <div class="project-grid">
-          <article class="project-card"><div class="project-top"><span class="project-type">GRADUATION PROJECT</span><span class="project-index">2021 — 2022</span></div><div class="project-art art-d365"><span class="art-orbit orbit-one"></span><span class="art-orbit orbit-two"></span><span class="art-core">DEXTER</span><span class="art-caption">SMART NURSING ROBOT</span></div><div class="project-body"><h3>Dexter — Smart Nursing Robot</h3><p>Developed a smart nursing robot for remote patient monitoring, enabling real-time collection of vital signs and live video streaming using integrated hardware, IoT, and cloud technologies.</p><p>Awarded Best Implemented Project and represented the university at ITSAF 2022.</p><div class="tag-row"><span>Arduino Mega</span><span>ESP32</span><span>MQTT</span><span>Firebase</span><span>MIT App Inventor</span></div></div></article>
-          <article class="project-card"><div class="project-top"><span class="project-type">MINI MBA PROJECT</span><span class="project-index">FEASIBILITY STUDY</span></div><div class="project-art art-dge"><div class="flow-node">MARKET<br>ANALYSIS</div><span class="flow-connector"></span><div class="flow-node">FINANCIAL<br>FORECAST</div><span class="art-caption">PRIVATE SCHOOLS · JERASH</span></div><div class="project-body"><h3>Feasibility Study — Private Schools in Jerash</h3><p>Prepared a feasibility study for launching private schools in underserved areas of Jerash, defining project vision, mission, governance, and strategic alignment.</p><p>Conducted market, community, risk, competitive, and financial analysis, including forecasts to support decision-making.</p><div class="tag-row"><span>Feasibility Study</span><span>Risk Analysis</span><span>Financial Forecasts</span></div></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="training">
-      <div class="container">
-        <div class="section-heading"><div><p class="eyebrow">08 / TRAINING & CERTIFICATES</p><h2>Continuous learning.</h2></div><p class="section-intro">Training items and dates transcribed from my CV. PMP is listed as training, not as a certification claim.</p></div>
-        <div class="training-grid">
-          <article class="training-card"><span>2025 — 2026</span><h3>AI & Microsoft Copilot Trainings</h3><ul><li>Generate Reports using AI Research Agents</li><li>Streamlining Business Workflows with AI</li><li>Next-Generation Productivity: Copilot & Agents for the Modern Enterprise</li><li>Business Case Builder & Agents Value Envisioning</li><li>Creating AI Agents using Microsoft Copilot Studio</li><li>Enhancing AI Agents with Autonomous Capabilities</li></ul></article>
-          <article class="training-card"><span>05/2023 — 09/2023</span><h3>Business Analysis — ECBA</h3><p>Hope International Company</p></article>
-          <article class="training-card"><span>01/2023 — 03/2023</span><h3>Frontend Development</h3><p>Hope International Company</p></article>
-          <article class="training-card"><span>10/2022 — 11/2022</span><h3>Business Modeling and Financial Planning</h3><p>Workshop with Mr. Sherif Abdelhadi</p></article>
-          <article class="training-card"><span>05/2022 — 07/2022</span><h3>Project Management Professional (PMP) Training</h3><p>International Develop Learning Institute (IDLI)</p></article>
-          <article class="training-card"><span>02/2022 — 05/2022</span><h3>Data Analyst</h3><p>Jordan Computer Society</p></article>
-          <article class="training-card"><span>07/2021 — 09/2021</span><h3>Who Are We, How to Be a Speaking Leader</h3><p>Communication skills course · Greater Amman Municipality</p></article>
-          <article class="training-card"><span>06/2021 — 07/2021</span><h3>Python & Machine Learning AI</h3><p>AI training · Hope International Company</p></article>
-          <article class="training-card"><span>01/2021 — 06/2021</span><h3>Mini MBA of Business Administration</h3><p>American Management Institute</p></article>
-          <article class="training-card"><span>01/2021 — 05/2021</span><h3>Artificial Intelligence & Digital Marketing with AI</h3><p>Galaxy Organization for Training & IT</p></article>
-          <article class="training-card"><span>03/2021 — 05/2021</span><h3>Life and Communication Skills</h3><p>World Vision</p></article>
-          <article class="training-card"><span>02/2021 — 06/2021</span><h3>ICDL — International Computer Driving License</h3><p>SPECTO International</p></article>
-        </div>
-        <div class="language-line"><strong>Languages</strong><span>Arabic — Native</span><span>English</span></div>
-      </div>
-    </section>
-
-    <section class="section contact-section" id="contact">
-      <div class="container contact-box"><div><p class="eyebrow">09 / CONTACT</p><h2>Let’s discuss how I can support your next project.</h2><p>Open to relevant Project Manager, Project Coordinator, Product Owner, and Digital Transformation opportunities in the UAE.</p></div><div class="contact-actions"><a class="button button-primary" href="mailto:noorzibraheem@gmail.com">Email me ↗</a><a class="contact-link" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Connect on LinkedIn <span>↗</span></a><a class="contact-link" href="assets/Nour_Musleh_Resume_2026-09.pdf" target="_blank" rel="noreferrer">View my CV <span>↗</span></a></div></div>
-    </section>
-  </main>
-  <footer class="footer"><div class="container footer-inner"><a class="brand footer-brand" href="#home"><span class="brand-mark">NM</span><span>NOUR MUSLEH<span class="brand-sub">PROJECT DELIVERY & DIGITAL TRANSFORMATION</span></span></a><p>© <span id="year"></span> Nour Musleh. Built for a clearer view of my work.</p><a href="#home" class="back-top">Back to top ↑</a></div></footer>
-  <script src="script.js"></script>
-</body>
-</html>
+// Accessible light/dark theme switcher. The selected theme is remembered on this device.
+const themeButton = document.getElementById('theme-toggle');
+const themeIcon = themeButton?.querySelector('.theme-icon');
+const themeLabel = themeButton?.querySelector('.theme-label');
+const themeMeta = document.getElementById('theme-color-meta');
+const savedTheme = (() => {
+  try { return localStorage.getItem('nour-portfolio-theme'); } catch (_) { return null; }
+})();
+const preferredTheme = window.matchMedia?.('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.style.colorScheme = theme;
+  if (themeButton) {
+    const switchTo = theme === 'dark' ? 'light' : 'dark';
+    themeButton.setAttribute('aria-label', `Switch to ${switchTo} mode`);
+    themeButton.setAttribute('title', `Switch to ${switchTo} mode`);
+    if (themeIcon) themeIcon.textContent = theme === 'dark' ? '☼' : '☾';
+    if (themeLabel) themeLabel.textContent = theme === 'dark' ? 'Light mode' : 'Dark mode';
+  }
+  if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#101c32' : '#f5f7fb');
+}
+applyTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : preferredTheme);
+themeButton?.addEventListener('click', () => {
+  const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  applyTheme(nextTheme);
+  try { localStorage.setItem('nour-portfolio-theme', nextTheme); } catch (_) {}
+});
